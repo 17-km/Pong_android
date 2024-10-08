@@ -1,0 +1,57 @@
+unit Unit1;
+
+interface
+
+uses
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Objects,
+  FMX.Layouts;
+
+type
+  TForm1 = class(TForm)
+    GameLayout: TLayout;
+    Background: TRectangle;
+    Circle1: TCircle;
+    TopBorder: TRectangle;
+    BottomBorder: TRectangle;
+    procedure FormShow(Sender: TObject);
+  private
+    { Private declarations }
+    MarginsThickness : Double;
+    BordersThickness : Double;
+    BallSize : Double;
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.fmx}
+
+uses
+
+Math;
+
+{ TForm1 }
+
+procedure TForm1.FormShow(Sender: TObject);
+begin
+  MarginsThickness := Min(Self.Width, Self.Height) * 1 / 100;
+  BordersThickness := MarginsThickness;
+  BallSize := MarginsThickness;
+
+  Self.TopBorder.Height := MarginsThickness;
+  Self.BottomBorder.Height := MarginsThickness;
+  Self.TopBorder.Width := Background.Width - 2 * MarginsThickness;
+  Self.BottomBorder.Width := Background.Width - 2 * MarginsThickness;
+  Self.TopBorder.Position.X := MarginsThickness;
+  Self.TopBorder.Position.Y := MarginsThickness;
+  Self.BottomBorder.Position.X := MarginsThickness;
+  Self.BottomBorder.Position.Y := Background.Height - MarginsThickness - BordersThickness;
+
+end;
+
+end.

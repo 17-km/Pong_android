@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899-12-30 00:00:00.000.389,=C:\Users\Krystian\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.304,=C:\Users\Krystian\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.536,=C:\Users\Krystian\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.420,C:\WORK\PROJECTS\DELPHI\TESTS\Nowy folder\uClose.pas=C:\WORK\PROJECTS\DELPHI\TESTS\Nowy folder\Unit2.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.709,C:\Users\Krystian\Documents\Embarcadero\Studio\Projects\Unit1.pas=C:\WORK\PROJECTS\DELPHI\TESTS\Nowy folder\Unit1.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.850,=C:\Users\Krystian\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.489,C:\Users\Krystian\Documents\Embarcadero\Studio\Projects\Project1.dproj=C:\WORK\PROJECTS\DELPHI\TESTS\Nowy folder\Project1.dproj</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.840,=C:\WORK\PROJECTS\DELPHI\TESTS\Nowy folder\Unit2.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.216,=C:\WORK\PROJECTS\DELPHI\TESTS\Nowy folder\uMain.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.943,=C:\Users\Krystian\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.420,C:\WORK\PROJECTS\DELPHI\TESTS\Nowy folder\uClose.fmx=C:\WORK\PROJECTS\DELPHI\TESTS\Nowy folder\Unit2.fmx</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.710,C:\Users\Krystian\Documents\Embarcadero\Studio\Projects\Unit1.fmx=C:\WORK\PROJECTS\DELPHI\TESTS\Nowy folder\Unit1.fmx</Transaction>
+  </Transactions>
+	<ActiveMobileDevice>
+		<NoProfile iOSSimulator="iPhone5" Android64="" Android="77398d6b"/>
+	</ActiveMobileDevice>
+</BorlandProject>

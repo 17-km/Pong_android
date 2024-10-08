@@ -1,0 +1,32 @@
+unit uClose;
+
+interface
+
+uses
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs;
+
+type
+  TClose = class(TForm)
+    procedure FormShow(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Close: TClose;
+
+implementation
+
+{$R *.fmx}
+
+procedure TClose.FormShow(Sender: TObject);
+begin
+  Self.Width := Round(Screen.Width / 3);
+  Self.Height := Round(Screen.Height / 3);
+  Self.Position := TFormPosition.poScreenCenter;
+end;
+
+end.

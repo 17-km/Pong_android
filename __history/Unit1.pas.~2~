@@ -1,0 +1,172 @@
+unit Unit1;
+
+interface
+
+uses
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Objects,
+  FMX.Layouts,
+
+  System.Generics.Collections;
+
+type
+  TForm1 = class(TForm)
+    GameLayout: TLayout;
+    Background: TRectangle;
+    Ball: TCircle;
+    procedure FormCreate(Sender: TObject);
+    procedure FormResize(Sender: TObject);
+  private
+    { Private declarations }
+    Width : Double;
+    Height : Double;
+    MarginsThickness : Double;
+    BordersThickness : Double;
+    BallSize : Double;
+    BackgroundColor : TAlphaColor;
+    ElementsColor : TAlphaColor;
+    TopBorder: TRectangle;
+    BottomBorder: TRectangle;
+    Rectangles: TObjectList<TRectangle>;
+    procedure CreateNetRectangles;
+    procedure CreateBorders;
+    procedure ClearBorder;
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.fmx}
+
+uses
+
+Math;
+
+//FMX.Platform, FMX.Platform.Android;
+
+{ TForm1 }
+
+procedure TForm1.FormCreate(Sender: TObject);
+begin
+  Width := Max(Background.Width, Background.Height);
+  Height := Min(Background.Width, Background.Height);
+
+  MarginsThickness := Min(Background.Width, Background.Height) * 1.25 / 100;
+  BordersThickness := MarginsThickness;
+  BallSize := MarginsThickness;
+
+  BackgroundColor := TAlphaColor($FFFFFFFF);
+  ElementsColor :=  TAlphaColor($FF00FF00);
+
+  CreateBorders;
+  CreateNetRectangles;
+end;
+
+procedure TForm1.FormResize(Sender: TObject);
+begin
+  ClearBorder;
+
+  Width := Max(Background.Width, Background.Height);
+  Height := Min(Background.Width, Background.Height);
+
+  MarginsThickness := Min(Background.Width, Background.Height) * 1.25 / 100;
+  BordersThickness := MarginsThickness;
+  BallSize := MarginsThickness;
+
+//  BackgroundColor := TAlphaColor($FFFFFFFF);
+//  ElementsColor :=  TAlphaColor($FF00FF00);
+
+
+  CreateBorders;
+  CreateNetRectangles;
+
+end;
+
+procedure TForm1.ClearBorder;
+begin
+  if Assigned(Rectangles) then
+  begin
+    Rectangles.Free;
+    Rectangles := nil;
+  end;
+  BottomBorder.Free;
+  TopBorder.Free;
+end;
+
+procedure TForm1.CreateBorders;
+begin
+  TopBorder := TRectangle.Create(Background);
+  BottomBorder := TRectangle.Create(Background);
+
+  TopBorder.Parent := Background;
+  BottomBorder.Parent := Background;
+
+  TopBorder.Fill.Color := ElementsColor;
+  BottomBorder.Fill.Color := ElementsColor;
+
+  TopBorder.Stroke.Kind := TBrushKind.None;
+  BottomBorder.Stroke.Kind := TBrushKind.None;
+
+  TopBorder.Height := BordersThickness;
+  BottomBorder.Height := BordersThickness;
+
+//  TopBorder.Width := Background.Width - 2 * MarginsThickness;
+//  BottomBorder.Width := Background.Width - 2 * MarginsThickness;
+
+  TopBorder.Width := Width - 2 * MarginsThickness;
+  BottomBorder.Width := Width - 2 * MarginsThickness;
+
+  TopBorder.Position.X := MarginsThickness;
+  TopBorder.Position.Y := MarginsThickness;
+  BottomBorder.Position.X := MarginsThickness;
+//  BottomBorder.Position.Y := Background.Height - MarginsThickness - BordersThickness;
+
+  BottomBorder.Position.Y := Height - MarginsThickness - BordersThickness;
+
+end;
+
+procedure TForm1.CreateNetRectangles;
+const
+  NumberOfRectangles = 18;
+var
+  i: Integer;
+  NewRectangle: TRectangle;
+  PositionX : Double;
+  PositionY : Double;
+  NetRectangleWidth : Double;
+  NetRectangleHeight : Double;
+begin
+  Rectangles := TObjectList<TRectangle>.Create;
+  NetRectangleWidth := BordersThickness;
+//  NetRectangleHeight := (Background.Height - 3 * MarginsThickness - 2 * BordersThickness) / NumberOfRectangles - MarginsThickness;
+//  PositionX := Background.Width / 2 - NetRectangleWidth / 2;
+  NetRectangleHeight := (Height - 3 * MarginsThickness - 2 * BordersThickness) / NumberOfRectangles - MarginsThickness;
+  PositionX := Width / 2 - NetRectangleWidth / 2;
+  PositionY := 2 * MarginsThickness + BordersThickness;
+
+  for i := 0 to NumberOfRectangles - 1 do
+  begin
+    NewRectangle := TRectangle.Create(Background);
+
+    NewRectangle.Parent := Background;
+    NewRectangle.Width := NetRectangleWidth;
+    NewRectangle.Height := NetRectangleHeight;
+    NewRectangle.Fill.Color := ElementsColor;
+    NewRectangle.Stroke.Kind := TBrushKind.None;
+
+    NewRectangle.Position.X := PositionX;
+    NewRectangle.Position.Y := PositionY;
+
+    PositionY := PositionY + MarginsThickness + NetRectangleHeight;
+
+    Rectangles.Add(NewRectangle);
+  end;
+end;
+
+
+
+end.

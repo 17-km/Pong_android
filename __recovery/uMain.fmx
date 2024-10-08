@@ -1,0 +1,65 @@
+object Main: TMain
+  Left = 0
+  Top = 0
+  BorderIcons = []
+  Caption = 'Pong Game'
+  ClientHeight = 480
+  ClientWidth = 628
+  WindowState = wsMaximized
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  FullScreen = True
+  OnCreate = FormCreate
+  OnKeyDown = FormKeyDown
+  OnResize = FormResize
+  DesignerMasterStyle = 3
+  object GameLayout: TLayout
+    Align = Client
+    Size.Width = 628.000000000000000000
+    Size.Height = 480.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object Panel1: TPanel
+      Touch.GestureManager = GestureManager
+      OnGesture = Panel1Gesture
+      Align = Client
+      Opacity = 0.000000000000000000
+      Size.Width = 628.000000000000000000
+      Size.Height = 480.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+    end
+    object Background: TRectangle
+      Align = Client
+      Fill.Color = claBlack
+      Size.Width = 628.000000000000000000
+      Size.Height = 480.000000000000000000
+      Size.PlatformDefault = False
+      Stroke.Kind = None
+      object Ball: TCircle
+        Align = Center
+        Size.Width = 30.000000000000000000
+        Size.Height = 30.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Kind = None
+      end
+    end
+  end
+  object GestureManager: TGestureManager
+    Sensitivity = 80.000000000000000000
+    Left = 208
+    Top = 368
+    GestureData = <
+      item
+        Control = Panel1
+        Collection = <
+          item
+            GestureID = sgiUp
+          end
+          item
+            GestureID = sgiDown
+          end>
+      end>
+  end
+end

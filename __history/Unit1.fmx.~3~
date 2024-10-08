@@ -1,0 +1,36 @@
+object Main: TMain
+  Left = 0
+  Top = 0
+  Caption = 'Pong Game'
+  ClientHeight = 480
+  ClientWidth = 628
+  WindowState = wsMaximized
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  OnResize = FormResize
+  DesignerMasterStyle = 3
+  object GameLayout: TLayout
+    Align = Client
+    Size.Width = 628.000000000000000000
+    Size.Height = 480.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object Background: TRectangle
+      Align = Client
+      Fill.Color = claBlack
+      Size.Width = 628.000000000000000000
+      Size.Height = 480.000000000000000000
+      Size.PlatformDefault = False
+      Stroke.Kind = None
+      object Ball: TCircle
+        Align = Center
+        Size.Width = 30.000000000000000000
+        Size.Height = 30.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Kind = None
+      end
+    end
+  end
+end
