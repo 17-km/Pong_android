@@ -1,0 +1,11 @@
+# Ignore directories Android, Android64, Win32
+/Android/
+/Android64/
+/Win32/
+
+# Ignoruj binary files
+*.exe
+*.dll
+*.so
+*.dcu
+*.dproj.local
